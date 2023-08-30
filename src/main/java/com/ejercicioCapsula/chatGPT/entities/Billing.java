@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 import org.hibernate.annotations.GenericGenerator;
 
 public class Billing {
@@ -12,7 +14,7 @@ public class Billing {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
     @GenericGenerator(name = "native" , strategy = "native")
     private Long id;
-    private BigDecimal currency;
+    private String currency;
     private BigDecimal amount;
     private BigDecimal balance;
 
@@ -20,7 +22,7 @@ public class Billing {
 
     }
 
-    public Billing(BigDecimal currency, BigDecimal amount, BigDecimal balance) {
+    public Billing(String currency, BigDecimal amount, BigDecimal balance) {
         this.currency = currency;
         this.amount = amount;
         this.balance = balance;
@@ -34,11 +36,11 @@ public class Billing {
         this.id = id;
     }
 
-    public BigDecimal getCurrency() {
+    public String getCurrency() {
         return currency;
     }
 
-    public void setCurrency(BigDecimal currency) {
+    public void setCurrency(String currency) {
         this.currency = currency;
     }
 

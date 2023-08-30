@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
 import org.hibernate.annotations.GenericGenerator;
 
 public class Role {
@@ -13,6 +15,7 @@ public class Role {
     @GenericGenerator(name = "native" , strategy = "native")
     private Long id;
     private String role;
+    @OneToMany
     private User user;
 
     public Role() {
